@@ -20,7 +20,7 @@ class Dsu {
     int find(int x){
 	assert(x>=0 && x<(int)p.size());
 	if(x==p[x]) return x;
-	return p[x] = find(x);
+	return p[x] = find(p[x]);
     }
     void join(int x,int y){
 	int a=find(x);
