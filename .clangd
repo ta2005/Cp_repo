@@ -1,0 +1,10 @@
+CompileFlags:
+  Add:
+    - -Wall
+    - -Wextra
+    - -Wshadow
+    - -I
+    - -I
+    - "-fsanitize=address,undefined"
+    - -std=c++23
+  Compiler: g++
