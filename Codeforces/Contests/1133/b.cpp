@@ -7,7 +7,7 @@ using namespace std;
 template<typename T> using ordered_set = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;
 #define all(a) (a).begin(), (a).end()
 #define rall(a) (a).rbegin(), (a).rend()
-#define endl "\n"
+// #define endl "\n"
 #define int long long
 #define pii pair<int, int>
 #define se second
@@ -35,19 +35,24 @@ int32_t main() {
     int t = 1;
     cin >> t;
     while (t--) {
-	int n,m;
-	cin>>n>>m;
-	vector<pii>res;
-	if(n==1){
-	    cout<<0<<endl;
+	int n;
+	cin>>n;
+	cout<<"? 1 "<<n<<endl;
+	int res;
+	cin>>res;
+	if(res==n || res==0){
+	    cout<<"! NO"<<endl;
 	    continue;
 	}
-	for(int i=0;i<(n+1)/2;i++){
-		res.pb({i,i+(n+1)/2-1});
-	}
-	cout<<res.size()<<endl;
-	for(auto [l,r] : res){
-	    cout<<l+1<<' '<<r+1<<endl;
+	// now we have that there is at least a zero and at least
+	// the only way we fail is 111111111111111000000000000
+	cout<<"? 1 "<<res<<endl;
+	int res2;
+	cin>>res2;
+	if(res!=res2){
+	    cout<<"! YES"<<endl;
+	}else{
+	    cout<<"! NO"<<endl;
 	}
     }
     return 0;
