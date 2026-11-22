@@ -65,7 +65,7 @@ int32_t main() {
 		if(av<=rest){
 		    rest-=av;
 		}else{
-		    acc+=(arr[j]-rest/(1<<j));
+		    acc+=(arr[j]-rest/(1<<j)-1);
 		    rest=0;
 		}
 	    }

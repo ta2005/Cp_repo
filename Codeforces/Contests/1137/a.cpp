@@ -2,7 +2,6 @@
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
-#include <memory>
 using namespace __gnu_pbds;
 using namespace std;
 template<typename T> using ordered_set = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;
@@ -30,37 +29,36 @@ ll lcm(ll a, ll b) { return (a * b) / gcd(a, b); }
 using clk = chrono::high_resolution_clock;
 // }}}
 
-namespace rg=std::ranges;
-
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t = 1;
     cin >> t;
     while (t--) {
-	int n;
-	cin>>n;
-	vector<int>v(n);
-	for(int i=0;i<n;i++){
-	    cin>>v[i];
+	// int x=2*25;
+	// int nbr_odd{};
+	// int nbr_even{};
+	// for(int i=1;i<=x;i++){
+	//     if(x%i==0){
+	// 	nbr_even+=(i%2==0);
+	// 	nbr_odd+=(i%2==1);
+	//     }
+	// }
+	// println("nbr_odd={} nbr_even={}",nbr_odd,nbr_even);
+	int x;
+	cin>>x;
+	int nbr{};
+	while(x%2==0){
+	    x/=2;
+	    nbr++;
 	}
-	v.pb(1);
-	rg::sort(v);
-	constexpr int mod = 1e9+7;
-	int nbr_pos{};
-	for(int i=0;i<n;i++){
-	    nbr_pos+=max(v[i+1]-v[i]-1,0LL);
-	    nbr_pos%=mod;
-	}
-	int acc{};
-	for(int i=n-1;i>=0;i--){
-	    if(v[i]==v[i-1]){
-		break;
-	    }
-	    acc+=nbr_pos;
-	    acc%=mod;
-	    nbr_pos=(nbr_pos-v[i+1]+v[i]+mod)%mod;
+	if(nbr==1){
+	    cout<<"No\n";
+	}else{
+	    cout<<"Yes\n";
 	}
     }
     return 0;
 }
+
+// 10 1 2 6 12 8 31 74 75 1111111111 998244358989466118

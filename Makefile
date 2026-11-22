@@ -1,4 +1,4 @@
 clean:
-	./scripts/clean_up.sh
+	fd --type x -X rm
 
 .PHONY=clean
